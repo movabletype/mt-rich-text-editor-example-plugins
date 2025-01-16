@@ -1,0 +1,13 @@
+name: RichTextEditorPasteHighlight
+version: 1.0.0
+author_link: http://www.movabletype.org/
+author_name: Six Apart, Ltd.
+description: <MT_TRANS phrase="A plugin to highlight pasted text">
+l10n_lexicon:
+  ja:
+    A plugin to insert html with syntax highlight: "HTMLをシンタックスハイライトして挿入するプラグイン"
+    HTML source with syntax highlight: "シンタックスハイライト済みHTML"
+
+editors:
+  mt_rich_text_editor:
+    extension: extension.tmpl

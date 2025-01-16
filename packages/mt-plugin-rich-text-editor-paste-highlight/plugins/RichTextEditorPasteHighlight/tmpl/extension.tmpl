@@ -1,0 +1,78 @@
+<mt:setvarblock name="js_include" append="1">
+  <!-- <__trans_section component="richtexteditorpastehighlight"> -->
+  <script type="module">
+    import hljs from "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/es/highlight.min.js";
+
+    class RichTextEditorPasteHighlight extends MTRichTextEditor.Component
+      .PasteMenuItemElement {
+      #cssTextPromise = undefined;
+
+      constructor() {
+        super();
+        this.#cssTextPromise = new Promise((resolve) => {
+          fetch(
+            "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+          )
+            .then((response) => response.text())
+            .then((text) => resolve(text));
+        });
+        const button = document.createElement("button");
+        button.textContent =
+          "<__trans phrase='HTML source with syntax highlight'>";
+        this.shadowRoot.appendChild(button);
+      }
+
+      isEditorItemAvailable() {
+        return /\s*<.*>\s*$/.test(this.content?.plainText ?? "");
+      }
+
+      async onEditorPaste() {
+        const highlighted = hljs.highlight(this.content?.plainText ?? "", {
+          language: "html",
+        });
+
+        const container = document.createElement("pre");
+        container.style.border = "1px solid #ccc";
+        container.style.padding = "1em";
+        container.style.margin = "0";
+        container.style.borderRadius = "0.5em";
+        const codeContainer = document.createElement("code");
+        codeContainer.innerHTML = highlighted.value;
+        container.appendChild(codeContainer);
+
+        const cssText = await this.#cssTextPromise;
+
+        const styleSheet = new CSSStyleSheet();
+        styleSheet.replaceSync(cssText);
+
+        Array.from(codeContainer.querySelectorAll("*")).forEach((el) => {
+          const computedStyle = Array.from(styleSheet.cssRules)
+            .filter((rule) => el.matches(rule.selectorText))
+            .map((rule) => rule.style.cssText)
+            .join("; ");
+
+          if (computedStyle) {
+            el.setAttribute("style", computedStyle);
+          }
+        });
+        this.insertContent(container.outerHTML);
+      }
+
+      connectedCallback() {
+        this.addEventListener("click", () => {
+          this.onEditorPaste();
+        });
+      }
+    }
+    customElements.define(
+      "mt-rich-text-editor-paste-menu-item-highlight",
+      RichTextEditorPasteHighlight
+    );
+
+    // install the item "highlight" in the paste menu.
+    MTRichTextEditor.on("create", (options) => {
+      options.pasteMenu.push("highlight");
+    });
+  </script>
+  <!-- </__trans_section> -->
+</mt:setvarblock>

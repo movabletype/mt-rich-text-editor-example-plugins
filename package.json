@@ -1,0 +1,13 @@
+{
+  "name": "mt-rich-text-editor-example-plugins",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && mkdir dist && cd packages && for d in *; do if [ -d $d ]; then zip -r ../dist/$d.zip $d; fi; done"
+  }
+}
+
