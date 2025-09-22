@@ -15,12 +15,13 @@ editors:
     toolbar_items:
       - insertTable
 
+schema_version: 1.000000
 upgrade_functions:
   rich_text_editor_insert_table_install_toolbar_items:
     code: |
       sub {
         require MT::Plugin::MTRichTextEditor::Util;
-        MT::Plugin::MTRichTextEditor::Util->install_toolbar_items({
+        MT::Plugin::MTRichTextEditor::Util->add_toolbar_items({
           items => ['insertTable'],
           row   => 0,
         });
