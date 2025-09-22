@@ -1,8 +1,8 @@
 # Movable Type Rich Text Editor Example Plugins
 
-* [RichTextEditorOptions](packages/mt-plugin-rich-text-editor-options)
-* [RichTextEditorInsertTable](packages/mt-plugin-rich-text-editor-insert-table)
-* [RichTextEditorLinter](packages/mt-plugin-rich-text-editor-linter)
-* [RichTextEditorPasteHighlight](packages/mt-plugin-rich-text-editor-paste-highlight)
-* [RichTextEditorExtensionEmoji](packages/mt-plugin-rich-text-editor-extension-emoji)
-* [RichTextEditorEmbedURLFilter](packages/mt-plugin-rich-text-editor-embed-url-filter)
+* [MTRichTextEditorOptions](packages/mt-plugin-mt-rich-text-editor-options)
+* [MTRichTextEditorInsertTable](packages/mt-plugin-mt-rich-text-editor-insert-table)
+* [MTRichTextEditorLinter](packages/mt-plugin-mt-rich-text-editor-linter)
+* [MTRichTextEditorPasteHighlight](packages/mt-plugin-mt-rich-text-editor-paste-highlight)
+* [MTRichTextEditorExtensionEmoji](packages/mt-plugin-mt-rich-text-editor-extension-emoji)
+* [MTRichTextEditorEmbedURLFilter](packages/mt-plugin-mt-rich-text-editor-embed-url-filter)

@@ -1,4 +1,4 @@
-name: RichTextEditorEmbedURLFilter
+name: MTRichTextEditorEmbedURLFilter
 version: 1.0.0
 author_link: http://www.movabletype.org/
 author_name: Six Apart, Ltd.
@@ -12,14 +12,16 @@ callbacks:
     sub {
         my ($cb, $params) = @_;
 
+        # deny specific hosts
         if ($params->{url} =~ m{https://denied-host-1.example.com}) {
             return 0;
         }
+        # another way to deny specific hosts
         elsif ($params->{url} =~ m{https://denied-host-2.example.com}) {
             $params->{url} = '';
         }
 
-        # retrieve content from local staging environment
+        # replace production URL with local staging environment URL for retrieving oEmbed data
         $params->{url} =~ s{https://production.example.com.jp}{http://localhost};
 
         1;
