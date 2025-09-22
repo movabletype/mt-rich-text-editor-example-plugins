@@ -6,10 +6,20 @@
     MTRichTextEditor.on("create", (options) => {
       // Toolbar Settings
       options.toolbar = [
+        // rows
         [
-          ["bold", "italic", "underline", "strike"],
-          ["blockquote", "bulletList", "orderedList", "horizontalRule"],
-          ["link", "unlink"],
+          // left side
+          [
+            // groups
+            ["bold", "italic", "underline", "strike"],
+            ["blockquote", "bulletList", "orderedList", "horizontalRule"],
+            ["link", "unlink"],
+          ],
+          // right side
+          [
+            // groups
+            ["undo", "redo"],
+          ],
         ],
       ];
     });
