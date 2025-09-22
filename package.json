@@ -7,7 +7,12 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "rm -rf dist && mkdir dist && cd packages && for d in *; do if [ -d $d ]; then zip -r ../dist/$d.zip $d; fi; done"
+    "build": "rm -rf dist && for d in packages/*; do if [ -d $d ]; then tsx build.ts $d dist; fi; done"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^24.5.2",
+    "js-yaml": "^4.1.0",
+    "tsx": "^4.20.5"
   }
 }
-
