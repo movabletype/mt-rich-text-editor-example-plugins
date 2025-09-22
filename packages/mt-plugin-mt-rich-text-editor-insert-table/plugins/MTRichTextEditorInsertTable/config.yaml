@@ -16,6 +16,7 @@ editors:
       - insertTable
 
 schema_version: 1.000000
+# add "insertTable" button to the first line of the toolbar during installation.
 upgrade_functions:
   rich_text_editor_insert_table_install_toolbar_items:
     code: |
