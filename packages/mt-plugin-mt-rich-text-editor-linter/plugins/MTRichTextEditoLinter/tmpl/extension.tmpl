@@ -73,8 +73,10 @@
     </style>
   </template>
   <script type="module">
+    // define keywords to be checked
     const keywords = ["Movable Type"];
 
+    // prepare a regular expression (edit distance 1) for each keyword.
     const keywordMap = keywords.map((keyword) => {
       const regex = [];
       for (let i = 0; i < keyword.length; i++) {
@@ -141,6 +143,7 @@
         });
       }
 
+      // called when content updated or selection changed.
       onEditorUpdate() {
         const textNodes = getAllTextNodes(this.tiptap.view.dom);
 
@@ -174,7 +177,7 @@
             const span = document.createElement("span");
             span.textContent = match.match;
             const button = document.createElement("button");
-            button.textContent = "<__trans phrase='Fix' />";
+            button.textContent = "<__trans phrase='Fix' encode_js='1' />";
             item.appendChild(span);
             item.appendChild(button);
             list.appendChild(item);
@@ -190,15 +193,9 @@
           this.panel.classList.add("d-none");
         }
       }
-
-      initDialog() {
-        const dialog = document
-          .querySelector("#rich-text-editor-linter-dialog")
-          .cloneNode(true);
-        document.body.appendChild(dialog);
-        return dialog;
-      }
     }
+
+    // register the component as a custom element with the "mt-rich-text-editor-statusbar-item-" prefix.
     customElements.define(
       "mt-rich-text-editor-statusbar-item-linter",
       RichTextEditorLinter

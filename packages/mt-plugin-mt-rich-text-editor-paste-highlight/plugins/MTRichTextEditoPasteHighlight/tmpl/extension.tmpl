@@ -18,11 +18,13 @@
         });
         const button = document.createElement("button");
         button.textContent =
-          "<__trans phrase='HTML source with syntax highlight'>";
+          "<__trans phrase='HTML source with syntax highlight' encode_js='1'>";
         this.shadowRoot.appendChild(button);
       }
 
+      // determine whether this item is available in the current context.
       isEditorItemAvailable() {
+        // return true if the content seems to be HTML source code.
         return /\s*<.*>\s*$/.test(this.content?.plainText ?? "");
       }
 
@@ -55,6 +57,9 @@
             el.setAttribute("style", computedStyle);
           }
         });
+
+        // insert HTML content via inherited `insertContent` method instead of Tiptap's raw command,
+        // to make this action switchable to another paste menu item action.
         this.insertContent(container.outerHTML);
       }
 
@@ -64,6 +69,8 @@
         });
       }
     }
+
+    // register the component as a custom element with the "mt-rich-text-editor-paste-menu-item-" prefix.
     customElements.define(
       "mt-rich-text-editor-paste-menu-item-highlight",
       RichTextEditorPasteHighlight

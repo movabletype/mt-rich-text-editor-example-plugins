@@ -30,7 +30,7 @@
           <form>
             <div class="form-group">
               <label for="file" class="mb-2 d-block">
-                <__trans phrase="CSV File" />
+                <__trans phrase="CSV File" encode_html="1" />
               </label>
               <input type="file" class="form-control-file" accept=".csv" />
             </div>
@@ -38,10 +38,10 @@
         </div>
         <div class="modal-footer">
           <button type="button" data-secondary class="btn btn-secondary">
-            <__trans phrase="Cancel" />
+            <__trans phrase="Cancel" encode_html="1" />
           </button>
           <button type="button" data-primary class="btn btn-primary">
-            <__trans phrase="Insert" />
+            <__trans phrase="Insert" encode_html="1" />
           </button>
         </div>
       </div>
@@ -53,8 +53,10 @@
       .ToolbarItemElement {
       constructor() {
         super();
+
+        // render toolbar button
         const button = document.createElement("button");
-        button.title = "<__trans phrase='Insert table'>";
+        button.title = "<__trans phrase='Insert table' encode_js='1' />";
         button.innerHTML = document.querySelector(
           "#rich-text-editor-insert-table-icon"
         ).innerHTML;
@@ -64,6 +66,8 @@
       connectedCallback() {
         super.connectedCallback();
         const dialog = this.initDialog();
+
+        // handle button click
         this.addEventListener("click", () => {
           dialog.showModal();
         });
@@ -104,6 +108,8 @@
                 });
                 tbody.appendChild(row);
               });
+
+              // insert table HTML to the editor
               this.tiptap.commands.insertContent(table.outerHTML);
             };
             reader.readAsText(file);
@@ -113,10 +119,14 @@
         return dialog;
       }
     }
+
+    // register the button as a custom element with the "mt-rich-text-editor-toolbar-item-" prefix.
     customElements.define(
       "mt-rich-text-editor-toolbar-item-inserttable",
       RichTextEditorInsertTable
     );
+
+    // you should add this button to the toolbar manually in the MTRichTextEditor settings
   </script>
   <!-- </__trans_section> -->
 </mt:setvarblock>
