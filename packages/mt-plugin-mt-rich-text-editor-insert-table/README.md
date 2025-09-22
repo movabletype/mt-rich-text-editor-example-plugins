@@ -1,3 +1,3 @@
 # MTRichTextEditorInsertTable
 
-This plugin adds a "Convert CSV file to table element and insert" button to the toolbar.
+MTRichTextEditorにボタンを追加するサンプルのプラグインです。このプラグインでは「CSVファイルをtable要素にして挿入する」ボタンを追加します。

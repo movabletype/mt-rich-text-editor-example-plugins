@@ -1,3 +1,3 @@
 # MTRichTextEditorPasteHighlight
 
-This plugin converts "HTML" text into a syntax-highlighted representation and inserts it when the text is pasted.
+MTRichTextEditorの貼り付け形式に選択肢を追加するサンプルのプラグインです。このプラグインはHTMLに見えるテキストが貼り付けられたときに「シンタックスハイライト済みHTML」として貼り付ける選択肢を追加します。

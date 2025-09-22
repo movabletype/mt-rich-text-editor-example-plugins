@@ -1,3 +1,3 @@
 # MTRichTextEditorOptions
 
-This plugin changes the initialization options for the editor.
+MTRichTextEditor の初期化オプションをJavaScriptから上書きするサンプルのプラグインです。

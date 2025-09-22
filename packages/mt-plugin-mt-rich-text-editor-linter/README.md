@@ -1,3 +1,3 @@
 # MTRichTextEditorLinter
 
-This plugin performs a spell check of the body text field and adds a display error to the status bar.
+MTRichTextEditorのステータスバーにコンポーネントを追加するサンプルのプラグインです。このプラグインは「スペルチェック」の機能を提供し、修正が必要な場合にはステータスバーにエラーを表示します。

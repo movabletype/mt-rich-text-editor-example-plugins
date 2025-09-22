@@ -1,3 +1,3 @@
 # MTRichTextEditorEmbedURLFilter
 
-This plugin changes the behavior of the editor when embedding URLs.
+ウェブページの埋め込み機能でURLの取得の許可設定をプログラムで許可したり、URLを差し替えたりするサンプルのプラグインです。
