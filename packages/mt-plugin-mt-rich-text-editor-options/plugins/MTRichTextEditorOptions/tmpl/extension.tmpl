@@ -11,8 +11,8 @@
           // left side
           [
             // groups
+            ["block"],
             ["bold", "italic", "underline", "strike"],
-            ["blockquote", "bulletList", "orderedList", "horizontalRule"],
             ["link", "unlink"],
           ],
           // right side
@@ -22,6 +22,19 @@
           ],
         ],
       ];
+
+      options.toolbarOptions = {
+        block: {
+          // "Paragraph Styles" options
+          blocks: [
+            { label: "Paragraph", value: "paragraph" },
+            { label: "Heading 1", value: "h1" },
+            { label: "Heading 2", value: "h2" },
+            { label: "Heading 3", value: "h3" },
+            { label: "Preformatted", value: "pre" },
+          ],
+        },
+      };
     });
 
     /**
