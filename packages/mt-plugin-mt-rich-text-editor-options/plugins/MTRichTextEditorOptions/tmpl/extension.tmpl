@@ -60,9 +60,24 @@ h1 {
     MTRichTextEditor.on("init", (editor) => {
       // Get an internal tiptap editor instance
       const tiptap = editor.tiptap;
-      // Monitor text updates via tiptap editor API
+
+      // Add event listeners to the tiptap editor instance.
+      // https://tiptap.dev/docs/editor/api/events
+
       tiptap.on("update", (e) => {
-        console.log(e);
+        console.log("Update event:", e);
+      });
+
+      tiptap.on("paste", (e) => {
+        console.log("Pasted content:", e);
+      });
+
+      tiptap.on("focus", (e) => {
+        console.log("Editor focused:", e);
+      });
+
+      tiptap.on("blur", (e) => {
+        console.log("Editor blurred:", e);
       });
     });
   </script>
