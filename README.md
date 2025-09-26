@@ -2,12 +2,13 @@
 
 MTRichTextEditor を拡張するサンプルプラグインのリポジトリです。以下のプラグインが含まれています。
 
-* [MTRichTextEditorOptions](packages/mt-plugin-mt-rich-text-editor-options)
-* [MTRichTextEditorInsertTable](packages/mt-plugin-mt-rich-text-editor-insert-table)
-* [MTRichTextEditorLinter](packages/mt-plugin-mt-rich-text-editor-linter)
-* [MTRichTextEditorPasteHighlight](packages/mt-plugin-mt-rich-text-editor-paste-highlight)
-* [MTRichTextEditorExtensionEmoji](packages/mt-plugin-mt-rich-text-editor-extension-emoji)
-* [MTRichTextEditorEmbedURLFilter](packages/mt-plugin-mt-rich-text-editor-embed-url-filter)
+* [MTRichTextEditorOptions](packages/mt-plugin-mt-rich-text-editor-options) - 初期化オプションをJavaScriptから上書き
+* [MTRichTextEditorInsertTable](packages/mt-plugin-mt-rich-text-editor-insert-table) - ツールバーへの「CSVファイルをtable要素にして挿入する」ボタンの追加
+* [MTRichTextEditorFontSize](packages/mt-plugin-mt-rich-text-editor-font-size) - ツールバーへのフォントサイズを変更するドロップダウンリストの追加
+* [MTRichTextEditorLinter](packages/mt-plugin-mt-rich-text-editor-linter) - ステータスバーにスペルチェックの機能を追加
+* [MTRichTextEditorPasteHighlight](packages/mt-plugin-mt-rich-text-editor-paste-highlight) - 貼り付け時に「シンタックスハイライト済みHTML」として貼り付ける選択肢を追加
+* [MTRichTextEditorExtensionEmoji](packages/mt-plugin-mt-rich-text-editor-extension-emoji) - 絵文字の入力をサポートする機能を追加
+* [MTRichTextEditorEmbedURLFilter](packages/mt-plugin-mt-rich-text-editor-embed-url-filter) - ウェブページの埋め込み機能でURLの取得の許可設定をプラグインで制御
 
 ## ダウンロード
 
