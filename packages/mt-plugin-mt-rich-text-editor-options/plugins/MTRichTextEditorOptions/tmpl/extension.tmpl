@@ -35,6 +35,23 @@
           ],
         },
       };
+
+      options.stylesheets ??= [];
+      // Add custom stylesheet for the content area. You can specify stylesheets via URL or inline styles.
+
+      // options.stylesheets.push("https://example.com/path/to/your/custom/styles.css");
+      // or
+      options.stylesheets.push(`
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  padding: 16px;
+}
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+`);
     });
 
     /**
