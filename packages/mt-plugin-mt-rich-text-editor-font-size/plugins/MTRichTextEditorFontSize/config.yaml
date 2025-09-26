@@ -1,0 +1,27 @@
+name: MTRichTextEditorFontSize
+version: 1.0.0
+author_link: http://www.movabletype.org/
+author_name: Six Apart, Ltd.
+description: <MT_TRANS phrase="font size select">
+l10n_lexicon:
+  ja:
+    font size select: "フォントサイズ選択"
+
+editors:
+  mt_rich_text_editor:
+    extension: extension.tmpl
+    toolbar_items:
+      - customfontsize
+
+schema_version: 1.000000
+# add "customfontsize" button to the first line of the toolbar during installation.
+upgrade_functions:
+  rich_text_editor_custom_font_size_select_install_toolbar_items:
+    code: |
+      sub {
+        require MT::Plugin::MTRichTextEditor::Util;
+        MT::Plugin::MTRichTextEditor::Util->add_toolbar_items({
+          items => ['customfontsize'],
+          row   => 0,
+        });
+      }
