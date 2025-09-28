@@ -1,0 +1,13 @@
+name: MTRichTextEditorInsertOnThisDay
+version: 1.0.0
+author_link: http://www.movabletype.org/
+author_name: Six Apart, Ltd.
+description: <MT_TRANS phrase="A plugin to insert information about today's date">
+l10n_lexicon:
+  ja:
+    A plugin to insert today's date: "今日の日付に関する情報を挿入するプラグイン"
+    On This Day: "今日は何の日？"
+
+editors:
+  mt_rich_text_editor:
+    extension: extension.tmpl
