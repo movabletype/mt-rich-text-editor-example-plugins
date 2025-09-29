@@ -7,6 +7,7 @@ MTRichTextEditor を拡張するサンプルプラグインのリポジトリで
 * [MTRichTextEditorFontSize](packages/mt-plugin-mt-rich-text-editor-font-size) - ツールバーへのフォントサイズを変更するドロップダウンリストの追加
 * [MTRichTextEditorLinter](packages/mt-plugin-mt-rich-text-editor-linter) - ステータスバーにスペルチェックの機能を追加
 * [MTRichTextEditorPasteHighlight](packages/mt-plugin-mt-rich-text-editor-paste-highlight) - 貼り付け時に「シンタックスハイライト済みHTML」として貼り付ける選択肢を追加
+* [MTRichTextEditorInsertOnThisDay](packages/mt-plugin-mt-rich-text-editor-insert-onthisday) - 当日の日付に関する情報をWikipediaから取得して挿入
 * [MTRichTextEditorExtensionEmoji](packages/mt-plugin-mt-rich-text-editor-extension-emoji) - 絵文字の入力をサポートする機能を追加
 * [MTRichTextEditorEmbedURLFilter](packages/mt-plugin-mt-rich-text-editor-embed-url-filter) - ウェブページの埋め込み機能でURLの取得の許可設定をプラグインで制御
 
