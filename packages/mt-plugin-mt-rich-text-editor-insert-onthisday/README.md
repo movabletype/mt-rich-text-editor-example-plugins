@@ -1,6 +1,8 @@
-# MTRichTextEditorExtensionEmoji
+# MTRichTextEditorInsertOnThisDay
 
-MTRichTextEditorで利用しているエディタのフレームワークであるTiptapのAPIを直接利用して機能を拡張するサンプルのプラグインです。このプラグインでは[Input Rules](https://tiptap.dev/docs/editor/api/input-rules)を利用して、`:+1:`のような文字列を絵文字に変換する機能を追加します。
+MTRichTextEditorのクイックアクションに項目を追加するサンプルのプラグインです。このプラグインは項目が選択されたときに、当日の日付に関する情報をWikipediaから取得して挿入します。
+
+https://github.com/user-attachments/assets/45cc3c34-f3d7-4c60-be73-e92b68b9014b
 
 ## LICENSE
 

@@ -1,0 +1,123 @@
+<mt:setvarblock name="js_include" append="1">
+  <!-- <__trans_section component="mtrichtexteditorfontsize"> -->
+  <script type="module">
+    MTRichTextEditor.import("@tiptap/core").then(({ Extension }) => {
+      // This extension is copied from the official Tiptap fontSize extension.
+      // https://github.com/ueberdosis/tiptap/blob/daf78eca945bbbb728e36f3dee24cc7740b44aeb/packages/extension-text-style/src/font-size/font-size.ts
+      // ## License
+      // Tiptap is open sourced software licensed under the [MIT license](https://github.com/ueberdosis/tiptap/blob/main/LICENSE.md).
+      const FontSize = Extension.create({
+        name: "fontSize",
+
+        addOptions() {
+          return {
+            types: ["textStyle"],
+          };
+        },
+
+        addGlobalAttributes() {
+          return [
+            {
+              types: this.options.types,
+              attributes: {
+                fontSize: {
+                  default: null,
+                  parseHTML: (element) => element.style.fontSize,
+                  renderHTML: (attributes) => {
+                    if (!attributes.fontSize) {
+                      return {};
+                    }
+
+                    return {
+                      style: `font-size: ${attributes.fontSize}`,
+                    };
+                  },
+                },
+              },
+            },
+          ];
+        },
+
+        addCommands() {
+          return {
+            setFontSize:
+              (fontSize) =>
+              ({ chain }) => {
+                return chain().setMark("textStyle", { fontSize }).run();
+              },
+            defaultFontSize:
+              () =>
+              ({ chain }) => {
+                return chain()
+                  .setMark("textStyle", { fontSize: null })
+                  .removeEmptyTextStyle()
+                  .run();
+              },
+          };
+        },
+      });
+
+      MTRichTextEditor.on("create", (options) => {
+        options.extensions.push(FontSize);
+      });
+    });
+
+    // define toolbar item
+    class RichTextEditorCustomFontSizeSelect extends MTRichTextEditor.Component
+      .ToolbarItemElement {
+      constructor() {
+        super();
+
+        const select = document.createElement("select");
+        select.style.zIndex = "1";
+        select.style.height = "30px";
+        select.style.padding = "0 4px";
+        select.style.border = "1px solid #ccc";
+        select.style.borderRadius = "4px";
+        select.style.background = "white";
+        select.style.fontSize = "14px";
+
+        [
+          { label: "Default", value: "default" },
+          { label: "28px", value: "28px" },
+          { label: "32px", value: "32px" },
+        ].forEach((option) => {
+          const opt = document.createElement("option");
+          opt.value = option.value;
+          opt.textContent = option.label;
+          select.appendChild(opt);
+        });
+        select.addEventListener("change", (e) => {
+          const value = e.target.value;
+          if (value === "default") {
+            this.tiptap.chain().focus().defaultFontSize().run();
+          } else {
+            this.tiptap.chain().focus().setFontSize(value).run();
+          }
+        });
+        this.shadowRoot.appendChild(select);
+      }
+
+      onEditorUpdate() {
+        const { fontSize } = this.tiptap.getAttributes("textStyle");
+        const select = this.shadowRoot.querySelector("select");
+        if (fontSize) {
+          select.value = fontSize;
+        } else {
+          select.value = "default";
+        }
+      }
+
+      connectedCallback() {
+        super.connectedCallback();
+      }
+    }
+
+    // register the button as a custom element with the "mt-rich-text-editor-toolbar-item-" prefix.
+    customElements.define(
+      "mt-rich-text-editor-toolbar-item-customfontsize",
+      RichTextEditorCustomFontSizeSelect
+    );
+  </script>
+  <!-- </__trans_section> -->
+</mt:setvarblock>

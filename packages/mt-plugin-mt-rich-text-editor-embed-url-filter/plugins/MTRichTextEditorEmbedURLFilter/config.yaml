@@ -2,10 +2,10 @@ name: MTRichTextEditorEmbedURLFilter
 version: 1.0.0
 author_link: http://www.movabletype.org/
 author_name: Six Apart, Ltd.
-description: <MT_TRANS phrase="A plugin to change the behavior of the editor when embedding URL">
+description: <MT_TRANS phrase="A plugin to change the behavior of the editor when embedding web pages">
 l10n_lexicon:
   ja:
-    A plugin to change the behavior of the editor when embedding URL: "URL埋め込み時のエディタの動作を変更するプラグイン"
+    A plugin to change the behavior of the editor when embedding web pages: "ウェブページの埋め込み時のエディタの動作を変更するプラグイン"
 
 callbacks:
   mt_rich_text_editor_embed_url: |

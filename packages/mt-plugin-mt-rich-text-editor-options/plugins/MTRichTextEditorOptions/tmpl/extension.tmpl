@@ -11,8 +11,8 @@
           // left side
           [
             // groups
+            ["block"],
             ["bold", "italic", "underline", "strike"],
-            ["blockquote", "bulletList", "orderedList", "horizontalRule"],
             ["link", "unlink"],
           ],
           // right side
@@ -22,6 +22,35 @@
           ],
         ],
       ];
+
+      options.toolbarOptions = {
+        block: {
+          // "Paragraph Styles" options
+          blocks: [
+            { label: "Paragraph", value: "paragraph" },
+            { label: "Heading 1", value: "h1" },
+            { label: "Heading 2", value: "h2" },
+            { label: "Heading 3", value: "h3" },
+            { label: "Preformatted", value: "pre" },
+          ],
+        },
+      };
+
+      options.stylesheets ??= [];
+      // Add custom stylesheet for the content area. You can specify stylesheets via URL or inline styles.
+      // options.stylesheets.push("https://example.com/path/to/your/custom/styles.css");
+      // or
+      options.stylesheets.push(`
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  padding: 16px;
+}
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+`);
     });
 
     /**
@@ -30,9 +59,24 @@
     MTRichTextEditor.on("init", (editor) => {
       // Get an internal tiptap editor instance
       const tiptap = editor.tiptap;
-      // Monitor text updates via tiptap editor API
+
+      // Add event listeners to the tiptap editor instance.
+      // https://tiptap.dev/docs/editor/api/events
+
       tiptap.on("update", (e) => {
-        console.log(e);
+        console.log("Update event:", e);
+      });
+
+      tiptap.on("paste", (e) => {
+        console.log("Pasted content:", e);
+      });
+
+      tiptap.on("focus", (e) => {
+        console.log("Editor focused:", e);
+      });
+
+      tiptap.on("blur", (e) => {
+        console.log("Editor blurred:", e);
       });
     });
   </script>
